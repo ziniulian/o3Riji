@@ -1,0 +1,190 @@
+html, body {
+	padding: 0;
+	margin: 0;
+	font-family: "Microsoft YaHei";
+	font-size: 24px;
+	font-size: 3vw;
+	color: #333;
+	background-color: #FF0;
+}
+
+/* -------------------------------------- */
+
+/*取消a链接默认样式*/
+a{
+	text-decoration:none;
+}
+
+/*元素消失*/
+.nosee {
+	display: none !important;
+}
+
+/*元素隐藏*/
+.hid {
+	visibility: hidden;
+}
+
+/*文字不被选中*/
+.noselect {
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	cursor:pointer;
+}
+
+.boso {
+	font-size: 0;
+}
+
+/* -------------------------------------- */
+
+.list {
+	display: inline-block;
+	vertical-align: top;
+	width: 40%;
+	/*height: 100px;
+	background-color: red;*/
+}
+
+.detail {
+	display: inline-block;
+	vertical-align: top;
+	width: 60%;
+	/*height: 100px;
+	background-color: yellow;*/
+}
+
+.y .txt {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 1.2rem;
+	line-height: 2;
+	color: #660;
+	padding: 0 0.5rem;
+}
+
+.y .num {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 0.7rem;
+	font-style: italic;
+	color: #990;
+	padding-top: 0.5rem;
+}
+
+.m {
+	padding-left: 2rem;
+}
+
+.mm {
+	border-left: solid 0.1rem #F00;
+}
+
+.mm .mark{
+	position: relative;
+	left: -0.31rem;
+	display: inline-block;
+	vertical-align: middle;
+	width: 0.4rem;
+	border-radius: 0.3rem;
+	background-color: #FF0;
+}
+
+.mm .txt {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 1rem;
+	font-weight: bold;
+	line-height: 2;
+	color: #660;
+	padding: 0 0.5rem;
+}
+
+.mm .num {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 0.6rem;
+	font-style: italic;
+	color: #990;
+}
+
+.dm:hover {
+	background-color: #EE0;
+}
+
+.tim {
+	font-size: 1.2rem;
+	line-height: 2;
+	color: #333;
+	padding-left: 0.5rem;
+}
+
+.title {
+	font-size: 1rem;
+	line-height: 2;
+	color: #333;
+	padding-left: 2rem;
+}
+
+.btnOut {
+	margin-top: 1.5rem;
+	text-align: center;
+}
+
+.pre, .next {
+	font-weight: bold;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+	width: 36%;
+	margin: 0 3%;
+	border: solid 0.2rem #333;
+	border-radius: 0.5rem;
+	font-size: 1.2rem;
+	line-height: 2.5;
+}
+
+.logo {
+	margin-right: 1rem;
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: #333;
+	line-height: 2;
+	text-align: right;
+	padding-right: 4rem;
+	background-repeat: no-repeat;
+	background-position: center right;
+	background-clip: padding-box;
+	background-size: contain;
+	background-image: url(/favicon.ico);
+}
+
+.sort {
+	display: block;
+	margin-top: 1.5rem;
+	font-size: 0.6rem;
+	color: #990;
+	line-height: 2;
+}
+
+/* -------------------------------------- */
+
+.ysec .y .txt {
+	font-weight: bold;
+	color: #333;
+}
+
+.ysec .y .num {
+	color: #333;
+}
+
+.msec .mark {
+	height: 0.4rem;
+	border: solid 0.1rem #F00;
+}
+
+.msec .txt {
+	color: #000;
+}

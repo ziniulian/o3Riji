@@ -1,0 +1,45 @@
+html, body {
+	padding: 0;
+	margin: 0;
+	font-family: "Microsoft YaHei";
+	font-size: 24px;
+	font-size: 3vw;
+	color: #333;
+	background-color: #FF0;
+}
+
+/* -------------------------------------- */
+
+/*取消a链接默认样式*/
+a{
+	font-size: 1rem;
+	color: #333;
+	line-height: 2;
+	text-decoration:none;
+}
+
+a:hover {
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+/* -------------------------------------- */
+
+.detail {
+	width: 100%;
+	padding: 1rem 0 0 2rem;
+}
+
+.logo {
+	margin-left: 1rem;
+	font-size: 1.5rem;
+	font-weight: bold;
+	line-height: 2;
+	text-align: left;
+	padding-left: 4rem;
+	background-repeat: no-repeat;
+	background-position: center left;
+	background-clip: padding-box;
+	background-size: contain;
+	background-image: url(/favicon.ico);
+}

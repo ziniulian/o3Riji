@@ -1,0 +1,11 @@
+.boso {
+    margin: 1rem;
+    font-size: 3rem;
+    line-height: 5rem;
+
+    /*字与字之间的间距*/
+    letter-spacing: 0.1rem;
+
+    /*开头缩进*/
+    /*text-indent : 5rem;*/
+}
