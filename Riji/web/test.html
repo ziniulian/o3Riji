@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>测试</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0" />
+		<meta charset="utf-8" />
+	</head>
+
+	<body>
+		<center>
+			<h1>srvGetRj</h1>
+			<form action="srvGetRj" method="post">
+				<table>
+					<tbody>
+						<tr><td>tim</td><td><input name="tim" type="text" placeholder="时间"></input></td></tr>
+					</tbody>
+				</table>
+				<br /><input type="submit" value="提交" />
+			</form>
+
+			<h1>srvAddRj</h1>
+			<form action="srvAddRj" method="post">
+				<table>
+					<tbody>
+						<tr><td>tim</td><td><input name="tim" type="text" placeholder="时间"></input></td></tr>
+						<tr><td>txt</td><td><input name="txt" type="text" placeholder="内容"></input></td></tr>
+						<tr><td>title</td><td><input name="title" type="text" placeholder="标题"></input></td></tr>
+					</tbody>
+				</table>
+				<br /><input type="submit" value="提交" />
+			</form>
+
+			<h1>srvQryRj</h1>
+			<form action="srvQryRj" method="post">
+				<table>
+					<tbody>
+						<tr><td>size</td><td><input name="size" type="text" placeholder="单页显示个数" value="10"></input></td></tr>
+						<tr><td>tim</td><td><input name="tim" type="text" placeholder="时间"></input></td></tr>
+						<tr><td>sort</td><td><input name="sort" type="text" placeholder="1:递增,-1:递减" value="1"></input></td></tr>
+					</tbody>
+				</table>
+				<br /><input type="submit" value="提交" />
+			</form>
+
+			<h1>srvDelRj</h1>
+			<form action="srvDelRj" method="post">
+				<table>
+					<tbody>
+						<tr><td>tim</td><td><input name="tim" type="text" placeholder="时间"></input></td></tr>
+					</tbody>
+				</table>
+				<br /><input type="submit" value="提交" />
+			</form>
+
+			<h1>srvSetRj</h1>
+			<form action="srvSetRj" method="post">
+				<table>
+					<tbody>
+						<tr><td>tim</td><td><input name="tim" type="text" placeholder="时间"></input></td></tr>
+						<tr><td>txt</td><td><input name="txt" type="text" placeholder="内容"></input></td></tr>
+						<tr><td>title</td><td><input name="title" type="text" placeholder="标题"></input></td></tr>
+					</tbody>
+				</table>
+				<br /><input type="submit" value="提交" />
+			</form>
+
+		</center>
+	</body>
+</html>
