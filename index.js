@@ -34,7 +34,7 @@ srv.ro.get("/tools.js", function (req, res) {
 	res.redirect(dmsrv.ds.main + "js/tools.js");
 });
 
-// 股
+// 日记
 srv.use("/Riji/", require("./Riji"));
 
 // 收尾处理

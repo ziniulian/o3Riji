@@ -9,7 +9,12 @@
 	<body>
 		<center>
 			<h1>srvGetRj</h1>
-			<form action="srvGetRj" method="post">
+			<form action="srvLimit" method="post" target="_blank">
+				<br /><input type="submit" value="提交" />
+			</form>
+
+			<h1>srvGetRj</h1>
+			<form action="srvGetRj" method="post" target="_blank">
 				<table>
 					<tbody>
 						<tr><td>tim</td><td><input name="tim" type="text" placeholder="时间"></input></td></tr>
@@ -18,8 +23,8 @@
 				<br /><input type="submit" value="提交" />
 			</form>
 
-			<h1>srvAddRj</h1>
-			<form action="srvAddRj" method="post">
+			<h1>srvMegRj</h1>
+			<form action="srvMegRj" method="post" target="_blank">
 				<table>
 					<tbody>
 						<tr><td>tim</td><td><input name="tim" type="text" placeholder="时间"></input></td></tr>
@@ -31,34 +36,24 @@
 			</form>
 
 			<h1>srvQryRj</h1>
-			<form action="srvQryRj" method="post">
+			<form action="srvQryRj" method="post" target="_blank">
 				<table>
 					<tbody>
 						<tr><td>size</td><td><input name="size" type="text" placeholder="单页显示个数" value="10"></input></td></tr>
-						<tr><td>tim</td><td><input name="tim" type="text" placeholder="时间"></input></td></tr>
 						<tr><td>sort</td><td><input name="sort" type="text" placeholder="1:递增,-1:递减" value="1"></input></td></tr>
+						<tr><td>stim</td><td><input name="stim" type="text" placeholder="stim"></input></td></tr>
+						<tr><td>etim</td><td><input name="etim" type="text" placeholder="etim"></input></td></tr>
+						<tr><td>tim</td><td><input name="tim" type="text" placeholder="时间"></input></td></tr>
 					</tbody>
 				</table>
 				<br /><input type="submit" value="提交" />
 			</form>
 
 			<h1>srvDelRj</h1>
-			<form action="srvDelRj" method="post">
+			<form action="srvDelRj" method="post" target="_blank">
 				<table>
 					<tbody>
 						<tr><td>tim</td><td><input name="tim" type="text" placeholder="时间"></input></td></tr>
-					</tbody>
-				</table>
-				<br /><input type="submit" value="提交" />
-			</form>
-
-			<h1>srvSetRj</h1>
-			<form action="srvSetRj" method="post">
-				<table>
-					<tbody>
-						<tr><td>tim</td><td><input name="tim" type="text" placeholder="时间"></input></td></tr>
-						<tr><td>txt</td><td><input name="txt" type="text" placeholder="内容"></input></td></tr>
-						<tr><td>title</td><td><input name="title" type="text" placeholder="标题"></input></td></tr>
 					</tbody>
 				</table>
 				<br /><input type="submit" value="提交" />

@@ -1,0 +1,64 @@
+.rj_left {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 5%;
+    width: 30%;
+}
+
+.rj_right {
+    display: inline-block;
+    vertical-align: top;
+    width: 60%
+}
+
+.rj_y {
+    display: block;
+    font-size: 2.7rem;
+    line-height: 2;
+    color: #000;
+}
+
+.rj_ms {
+    display: none;
+}
+
+.rj_ysec .rj_y {
+    font-weight: bold;
+}
+.rj_ysec .rj_ms {
+    display: block;
+    padding-left: 10%;
+}
+
+.rj_m {
+    display: block;
+	position: relative;
+    color: #000;
+}
+
+.rj_txt {
+    font-size: 2.3rem;
+    line-height: 3.8rem;
+    padding-left: 10%;
+    border-left: solid 0.1rem #F00;
+}
+
+.rj_mark {
+	position: absolute;
+    left: -0.2rem;
+    top: 1.7rem;
+	width: 0.4rem;
+	border-radius: 0.3rem;
+	background-color: #FF0;
+}
+.rj_msec .rj_mark {
+	height: 0.4rem;
+	border: solid 0.1rem #F00;
+}
+
+.rj_num {
+    font-size: 0.7em;
+    font-weight: normal;
+    font-style: italic;
+    color: #999;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>日记目录</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0" />
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="/myLib/LZR.js"></script>
+		<script type="text/javascript" src="/tools.js"></script>
+		<script type="text/javascript" src="js/riHome.js"></script>
+		<link rel="stylesheet" href="/base.css">
+		<link rel="stylesheet" href="css/rj.css">
+
+		<style type="text/css">
+			.boso {
+			    font-size: 0;
+			}
+			.boso .logo {
+				font-size: 2rem;
+			}
+			.boso .c {
+				font-size: 2rem;
+				line-height: 2;
+			}
+			#doe_sort {
+				padding-left: 1rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="boso" class="boso">
+			<div class="logo">
+				<a id="doe_sort" href="javascript: dat.chgSort();">新到旧</a>
+				<a name="dmad_io_home" class="logohome" target="_blank"></a>
+			</div>
+			<div class="rj_left">
+				<div id="doe_all" class="rj_ysec">
+					<a class="rj_y" href="javascript: dat.setMenu(0, 0);">全部<span id="doe_num" class="rj_num"></span></a>
+				</div>
+				<div id="doe_menu">
+					<div id="doe_2018">
+						<a class="rj_y" href="javascript: dat.setMenu(2018, 0);">2018</a>
+						<div class="rj_ms">
+							<a id="doe_2018_3" class="rj_m" href="javascript: dat.setMenu(2018, 3);">
+								<div class="rj_mark"></div>
+								<div class="rj_txt">3</div>
+							</a>
+							<a id="doe_2018_2" class="rj_m" href="javascript: dat.setMenu(2018, 2);">
+								<div class="rj_mark"></div>
+								<div class="rj_txt">2</div>
+							</a>
+						</div>
+					</div>
+					<div class="rj_y">2017</div>
+					<div class="rj_y">2016</div>
+					<div class="rj_y">2015</div>
+					<div class="rj_y">2014</div>
+				</div>
+			</div><!--
+			 --><div class="rj_right">
+				<div class="c">
+					<a name="preDom" class="Lc_hid" href="javascript: dat.db.pre();">上一页</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a name="nextDom" class="Lc_hid" href="javascript: dat.db.next();">下一页</a>
+				</div>
+				<div id="tbs"></div>
+				<div class="c">
+					<a name="preDom" class="Lc_hid" href="javascript: dat.db.pre();">上一页</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a name="nextDom" class="Lc_hid" href="javascript: dat.db.next();">下一页</a>
+				</div>
+			</div>
+
+			<div id="mark" class="Lc_nosee"><br /><br />请稍候 ...<br /><br /><a href="javascript: dat.db.showMark(false);">取消</a></div>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		document.body.onload = init;
+	</script>
+</html>
