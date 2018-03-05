@@ -6,7 +6,7 @@
 		<meta charset="utf-8" />
 		<script type="text/javascript" src="/myLib/LZR.js"></script>
 		<script type="text/javascript" src="/tools.js"></script>
-		<script type="text/javascript" src="js/riHome.js"></script>
+		<script type="text/javascript" src="js/rjHome.js"></script>
 		<link rel="stylesheet" href="/base.css">
 		<link rel="stylesheet" href="css/rj.css">
 
@@ -15,7 +15,7 @@
 			    font-size: 0;
 			}
 			.boso .logo {
-				font-size: 2rem;
+				font-size: 1.5rem;
 			}
 			.boso .c {
 				font-size: 2rem;
@@ -30,7 +30,7 @@
 	<body>
 		<div id="boso" class="boso">
 			<div class="logo">
-				<a id="doe_sort" href="javascript: dat.chgSort();">新到旧</a>
+				<a id="doe_sort" href="javascript: dat.chgSort();">排序</a>
 				<a name="dmad_io_home" class="logohome" target="_blank"></a>
 			</div>
 			<div class="rj_left">
@@ -38,7 +38,7 @@
 					<a class="rj_y" href="javascript: dat.setMenu(0, 0);">全部<span id="doe_num" class="rj_num"></span></a>
 				</div>
 				<div id="doe_menu">
-					<div id="doe_2018">
+					<!-- <div id="doe_2018">
 						<a class="rj_y" href="javascript: dat.setMenu(2018, 0);">2018</a>
 						<div class="rj_ms">
 							<a id="doe_2018_3" class="rj_m" href="javascript: dat.setMenu(2018, 3);">
@@ -54,20 +54,20 @@
 					<div class="rj_y">2017</div>
 					<div class="rj_y">2016</div>
 					<div class="rj_y">2015</div>
-					<div class="rj_y">2014</div>
+					<div class="rj_y">2014</div> -->
 				</div>
 			</div><!--
-			 --><div class="rj_right">
+			--><div class="rj_right">
 				<div class="c">
-					<a name="preDom" class="Lc_hid" href="javascript: dat.db.pre();">上一页</a>
+					<a name="preDom" class="Lc_hid" href="javascript: dat.prePag();">上一页</a>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<a name="nextDom" class="Lc_hid" href="javascript: dat.db.next();">下一页</a>
+					<a name="nextDom" class="Lc_hid" href="javascript: dat.nextPag();">下一页</a>
 				</div>
 				<div id="tbs"></div>
 				<div class="c">
-					<a name="preDom" class="Lc_hid" href="javascript: dat.db.pre();">上一页</a>
+					<a name="preDom" class="Lc_hid" href="javascript: dat.prePag();">上一页</a>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<a name="nextDom" class="Lc_hid" href="javascript: dat.db.next();">下一页</a>
+					<a name="nextDom" class="Lc_hid" href="javascript: dat.nextPag();">下一页</a>
 				</div>
 			</div>
 

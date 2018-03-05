@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>日记</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0" />
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="/myLib/LZR.js"></script>
+		<script type="text/javascript" src="/tools.js"></script>
+		<link rel="stylesheet" href="/base.css">
+
+		<style type="text/css">
+			#timDoe {
+				font-size: 2rem;
+				padding-left: 1rem;
+			}
+			#titleDoe {
+				text-align: center;
+				font-size: 3.8rem;
+				line-height: 2.7;
+			}
+			/* 使 pre 自动换行 */
+			pre {
+				white-space: pre-wrap;			/* css-3 */
+				white-space: -moz-pre-wrap;		/* Mozilla, since 1999 */
+				white-space: -pre-wrap;			/* Opera 4-6 */
+				white-space: -o-pre-wrap;		/* Opera 7 */
+				word-wrap: break-word;			/* Internet Explorer 5.5+ */
+			}
+			.out {
+			    margin: 1rem;
+			    font-size: 2rem;
+			    line-height: 1.5;
+
+				/* 强制换行 */
+				word-break: break-all;
+
+			    /*字与字之间的间距*/
+			    letter-spacing: 0.1rem;
+
+			    /*开头缩进*/
+			    /*text-indent : 5rem;*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="boso" class="boso">
+			<div class="logo">
+				<span id="timDoe"></span>
+				<a name="dmad_io_rj" class="logohome" target="_blank"></a>
+			</div>
+			<div id="titleDoe"></div>
+			<div class = "out">
+				<pre id="txtDoe"></pre>
+			</div>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		function init() {
+			LZR.load([
+				"LZR.HTML.Util.Url"
+			]);
+			var utUrl = LZR.getSingleton(LZR.HTML.Util.Url);
+			var r = utUrl.getRequest();
+
+			if (r.t) {
+				LZR.load([
+					"LZR.Base.Json",
+					"LZR.HTML.Base.Ajax",
+					"LZR.Base.Time"
+				]);
+				var utTim = LZR.getSingleton(LZR.Base.Time);
+				var utJson = LZR.getSingleton(LZR.Base.Json);
+				var ajx = new LZR.HTML.Base.Ajax ();
+				ajx.evt.rsp.add(function (txt, sta) {
+					if (sta === 200) {
+						var d = utJson.toObj(txt);
+						if (d.ok) {
+							var o = d.dat[0];
+							timDoe.innerHTML = utTim.format(new Date(utTim.parseDayTimestamp(o.tim)), "date");
+							txtDoe.innerHTML = o.content;
+							if (o.title) {
+								titleDoe.innerHTML = o.title;
+							}
+						}
+					}
+				});
+				ajx.post("srvGetRj/", {
+					tim: r.t
+				}, null, true);
+
+				lzr_tools.trace();
+			}
+
+			lzr_tools.getDomains("io_rj");
+		}
+
+		document.body.onload = init;
+	</script>
+</html>
