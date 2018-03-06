@@ -20,7 +20,7 @@ var clsR = LZR.Node.Srv.Result;
 
 // 常用数据库
 var cmdb = new LZR.Node.Srv.ComDbSrv ({
-	logAble: 1
+	logAble: 5
 });
 cmdb.initDb(
 	(process.env.OPENSHIFT_MONGODB_DB_URL || "mongodb://localhost:27017/test"),
@@ -93,7 +93,7 @@ r.post("/srvMegRj/", function (req, res, next) {
 		var o = {}, b = false;
 		if (req.body.txt) {
 			b = true;
-			o.txt = req.body.txt;
+			o.content = req.body.txt;
 		}
 		if (req.body.title) {
 			b = true;
@@ -130,13 +130,13 @@ r.post("/srvQryRj/", function (req, res, next) {
 	);
 });
 
-r.post("/srvDelRj/", function (req, res, next) {
-	cmdb.del( req, res, next,
-		{"tim":utMath.str2num(req.body.tim), "typ":1}
-	);
-});
+// r.post("/srvDelRj/", function (req, res, next) {
+// 	cmdb.del( req, res, next,
+// 		{"tim":utMath.str2num(req.body.tim), "typ":1}
+// 	);
+// });
 
-/**************************************/
+/****************** 相亲 ********************/
 
 // r.post("/srvAddXq/:nam/:tel/:year/:zo/:op/:job/:tim/:txt", function (req, res, next) {
 // 	mdb.qry("add", req, res, next, [o]);

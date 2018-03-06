@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>日记管理</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0" />
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="/myLib/LZR.js"></script>
+		<script type="text/javascript" src="/tools.js"></script>
+		<script type="text/javascript" src="js/rjMgr.js"></script>
+		<link rel="stylesheet" href="/base.css">
+
+		<style type="text/css">
+			input {
+				margin: 0 0 0.3rem 1rem;
+			}
+			#timDoe {
+				width: 33%;
+			}
+			#titleDoe {
+				width: 55%;
+			}
+			#logDoe {
+				margin-left: 1rem;
+				color: #F00;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="boso" class="boso">
+			<div class="logo">
+				<a href="rjHome.html" class="logohome" target="_blank"></a>
+				<div id="logDoe"></div>
+			</div>
+			<div>
+				<input id="timDoe" type="date" placeholder="日期"></input>
+				<input id="titleDoe" type="text" placeholder="标题"></input>
+				<textarea id="txtDoe" class="txtBox" type="textarea" placeholder="内容"></textarea>
+				<br/><center><a href="javascript: dat.sub();">--提交--</a></center>
+			</div>
+			<div id="mark" class="Lc_nosee"><br /><br />请稍候 ...<br /><br /><a href="javascript: dat.db.showMark(false);">取消</a></div>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		document.body.onload = init;
+	</script>
+</html>
