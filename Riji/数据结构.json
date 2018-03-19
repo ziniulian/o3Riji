@@ -1,0 +1,64 @@
+/* 日记结构 */
+{
+    "typ" : 1,
+    "tim" : 111,    // 日期时间戳
+    "title" : "",     // 标题
+    "content" : "",     // 内容
+}
+
+/* 相亲 */
+{
+    "typ" : 2,
+    "nam" : "",     // 姓名
+    "year" : 1986,  // 出生年份
+    "zo" : "虎",     // 生肖
+    "op" : "",  // 籍贯
+    "job" : "",   // 职业
+    "order" : 1,    // 序号
+    "metotal":  3,  // 见面总次数
+    "meet" : [      // 见面信息
+        {
+            "tim" : "2014-2-2"  // 见面日期
+        },
+        {
+            "tim" : "2015-4-21"
+        },
+        {
+            "tim" : "2015-4-27",    // 见面日期
+            "txtim" : "2015-9-14",  // 记录日期
+            "txt" : "---"       // 记录内容
+        }
+    ]
+}
+
+
+/***************************** 数据库管理小代码 *****************************/
+
+
+// 整理相亲数据
+r.get("/srvHdXqDat/", function (req, res, next) {
+	cmdb.get( req, res, next,
+		{"typ":2},
+		{"_id":0}, true
+	);
+});
+r.get("/srvHdXqDat/", function (req, res, next) {
+	var r = req.qpobj.comDbSrvReturn;
+	var i, j, k;
+	for (var i = 0; i < r.length; i ++) {
+		r[i].typ = 3;
+		var k = r[i].meet;
+		r[i].metotal = k.length;	// 添加 见面总次数 属性
+		for (var j = 0; j < k.length; j ++) {
+			k[j].tim = utTim.getDayTimestamp(k[j].tim + " 0:0");	// 将日期文字转换为日时间戳
+			if (k[j].txtim) {
+				k[j].txtim = utTim.getDayTimestamp(k[j].txtim + " 0:0");
+			}
+		}
+	}
+	cmdb.add(req, res, next, null, r);
+});
+
+// 数据库操作：
+db.diary.remove({typ:2})
+db.diary.update({typ:3}, {"$set":{typ:2}}, false, true)

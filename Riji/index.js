@@ -138,25 +138,37 @@ r.post("/srvQryRj/", function (req, res, next) {
 
 /****************** 相亲 ********************/
 
-// r.post("/srvAddXq/:nam/:tel/:year/:zo/:op/:job/:tim/:txt", function (req, res, next) {
-// 	mdb.qry("add", req, res, next, [o]);
-// });
-//
-// r.post("/srvDelXq/:order", function (req, res, next) {
-// 	mdb.qry("del", req, res, next, [o]);
-// });
-//
-// r.post("/srvAddXqSub/:order/:metim/:tim?/:txt?", function (req, res, next) {
-// 	mdb.qry("set", req, res, next, [o]);
-// });
-//
-// r.post("/srvDelXqSub/:order/:id", function (req, res, next) {
-// 	mdb.qry("set", req, res, next, [o]);
-// });
-//
-// r.post("/srvSetXqSub/:order/:id/:txt?", function (req, res, next) {
-// 	mdb.qry("set", req, res, next, [o]);
-// });
+r.post("/srvNamsXq/", function (req, res, next) {
+	cmdb.get( req, res, next,
+		{"typ":2},
+		{"_id":0, "nam":1, "order":1, "metotal":1}
+	);
+});
+
+r.post("/srvInfoXq/", function (req, res, next) {
+	cmdb.get( req, res, next,
+		{"order": (req.body.od - 0), "typ":2},
+		{
+			"_id":0, "nam":1, "year":1, "zo":1, "op":1, "job":1,
+			"order":1, "metotal":1, "meet.tim":1, "meet.txtim":1
+		}
+	);
+});
+
+r.post("/srvOneMeetXq/", function (req, res, next) {
+	cmdb.get( req, res, next,
+		{"order": (req.body.od - 0), "typ":2},
+		{"_id":0, "nam":1, "meet":1}, true
+	);
+});
+r.post("/srvOneMeetXq/", function (req, res, next) {
+	var r = req.qpobj.comDbSrvReturn[0];
+	var o = {
+		nam: r.nam,
+		meet: r.meet[(req.body.id - 0)]
+	};
+	res.json(clsR.get(o));
+});
 
 // 初始化模板
 // r.initTmp();
