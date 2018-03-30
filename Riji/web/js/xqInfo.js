@@ -62,6 +62,6 @@ function init() {
 	if (r.id) {
 		ajx.evt.rsp.add(dat.hdDat);
 		ajx.post("srvInfoXq/", {od: r.id}, null, true);
-		// lzr_tools.trace();
+		lzr_tools.trace();
 	}
 }
