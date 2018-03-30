@@ -1,4 +1,3 @@
-// 访问管理
 
 LZR.load([
 	"LZR.HTML.Srv.ComDbQry",

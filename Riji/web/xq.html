@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>相亲目录</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0" />
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="/myLib/LZR.js"></script>
+		<script type="text/javascript" src="/tools.js"></script>
+		<script type="text/javascript" src="js/xq.js"></script>
+		<link rel="stylesheet" href="/base.css">
+
+		<style type="text/css">
+			#tbs {
+				text-align: center;
+			}
+			.nam {
+				display: inline-block;
+				width: 38%;
+				font-size: 2.2rem;
+				line-height: 2;
+				color: #333;
+				text-align: left;
+			}
+			.tim {
+				font-size: 1.5rem;
+				font-style: italic;
+				color: #999;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="boso" class="boso">
+			<div class="logo">
+				<a href="rjHome.html" class="logohome" target="_blank"></a>
+				<input name="tt" type="radio" onchange="dat.show(true);" checked>见面次数</input>
+				<input name="tt" type="radio" onchange="dat.show(false);">时间</input>
+			</div>
+			<div id="tbs"></div>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		document.body.onload = init;
+	</script>
+</html>

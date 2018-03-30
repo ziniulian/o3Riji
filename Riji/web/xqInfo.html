@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>基本信息</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0" />
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="/myLib/LZR.js"></script>
+		<script type="text/javascript" src="/tools.js"></script>
+		<script type="text/javascript" src="js/xqInfo.js"></script>
+		<link rel="stylesheet" href="/base.css">
+
+		<style type="text/css">
+			#tbs {
+				text-align: center;
+			}
+			.boso {
+				font-size: 2rem;
+			}
+			.tim {
+				display: inline-block;
+				width: 38%;
+				line-height: 3;
+				text-align: left;
+				color: #000;
+			}
+			.nolink {
+				color: #999;
+			}
+			.smalline {
+				vertical-align: top;
+				line-height: 1.5;
+				padding: 1rem 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="boso" class="boso">
+			<div class="logo">
+				<span id="namDoe"></span>
+				<a href="xq.html" class="logohome" target="_blank"></a>
+			</div>
+			<table>
+				<tbody>
+					<tr>
+						<td class="k">出生年份 ： </td>
+						<td id="yearDoe" class="v"></td>
+					</tr>
+					<tr>
+						<td class="k">生肖 ： </td>
+						<td id="zoDoe" class="v"></td>
+					</tr>
+					<tr>
+						<td class="k smalline">电话 ： </td>
+						<td id="telDoe" class="v smalline"></td>
+					</tr>
+					<tr>
+						<td class="k">籍贯 ： </td>
+						<td id="opDoe" class="v"></td>
+					</tr>
+					<tr>
+						<td class="k">职业 ： </td>
+						<td id="jobDoe" class="v"></td>
+					</tr>
+					<tr>
+						<td class="k">见面次数 ： </td>
+						<td id="timDoe" class="v"></td>
+					</tr>
+				</tbody>
+			</table>
+			<hr />
+			<div id="tbs"></div>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		document.body.onload = init;
+	</script>
+</html>

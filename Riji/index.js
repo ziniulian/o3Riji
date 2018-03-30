@@ -143,13 +143,19 @@ r.post("/srvNamsXq/", function (req, res, next) {
 		{"typ":2},
 		{"_id":0, "nam":1, "order":1, "metotal":1}
 	);
+	// req.body.size = 100;
+	// req.body.sort = 1;
+	// cmdb.qry( req, res, next,
+	// 	"order", null, {"typ":2},
+	// 	{"_id":0, "nam":1, "order":1, "metotal":1}
+	// );
 });
 
 r.post("/srvInfoXq/", function (req, res, next) {
 	cmdb.get( req, res, next,
 		{"order": (req.body.od - 0), "typ":2},
 		{
-			"_id":0, "nam":1, "year":1, "zo":1, "op":1, "job":1,
+			"_id":0, "nam":1, "year":1, "zo":1, "tel":1, "op":1, "job":1,
 			"order":1, "metotal":1, "meet.tim":1, "meet.txtim":1
 		}
 	);
@@ -169,6 +175,10 @@ r.post("/srvOneMeetXq/", function (req, res, next) {
 	};
 	res.json(clsR.get(o));
 });
+
+// 添加新人
+// 修改基本信息
+// 补充、修改约会信息
 
 // 初始化模板
 // r.initTmp();
