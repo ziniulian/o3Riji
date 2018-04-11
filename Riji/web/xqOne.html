@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>日记</title>
+		<title>相亲记</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0" />
 		<meta charset="utf-8" />
 		<script type="text/javascript" src="/myLib/LZR.js"></script>
@@ -9,13 +9,24 @@
 		<script type="text/javascript" src="js/rj.js"></script>
 		<link rel="stylesheet" href="/base.css">
 		<link rel="stylesheet" href="css/xqOne.css">
+
+		<style type="text/css">
+			#titleDoe {
+				text-align: right;
+				padding-right: 1rem;
+				font-size: 1.2rem;
+				line-height: 1.2;
+				font-style: italic;
+				color: #999;
+			}
+		</style>
 	</head>
 
 	<body>
 		<div id="boso" class="boso">
 			<div class="logo">
 				<span id="timDoe"></span>
-				<a href="rjHome.html" class="logohome" target="_blank"></a>
+				<a id="aDoe" class="logohome"></a>
 			</div>
 			<div id="titleDoe"></div>
 			<div class = "out">
@@ -25,6 +36,14 @@
 	</body>
 
 	<script type="text/javascript">
+		dat.srv = "srvOneMeetXq/";
+		dat.arg = ["od", "id"];
+		dat.show = function (o) {
+			aDoe.href = "xqInfo.html?id=" + dat.req.od;
+			timDoe.innerHTML = "与" + o.nam + "的第" + (dat.req.id - 0 + 1) + "次见面：" + utTim.format(new Date(utTim.parseDayTimestamp(o.meet.tim)), "date");
+			titleDoe.innerHTML = "记于：" + utTim.format(new Date(utTim.parseDayTimestamp(o.meet.txtim)), "date");
+			txtDoe.innerHTML = o.meet.txt;
+		};
 		document.body.onload = init;
 	</script>
 </html>

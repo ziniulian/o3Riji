@@ -1,0 +1,33 @@
+
+#timDoe {
+	font-size: 2rem;
+	padding-left: 1rem;
+}
+#titleDoe {
+	text-align: center;
+	font-size: 3.8rem;
+	line-height: 2.7;
+}
+/* 使 pre 自动换行 */
+pre {
+	white-space: pre-wrap;			/* css-3 */
+	white-space: -moz-pre-wrap;		/* Mozilla, since 1999 */
+	white-space: -pre-wrap;		/* Opera 4-6 */
+	white-space: -o-pre-wrap;		/* Opera 7 */
+	word-wrap: break-word;		/* Internet Explorer 5.5+ */
+}
+
+.out {
+	margin: 1rem;
+	font-size: 2rem;
+	line-height: 1.5;
+
+	/* 强制换行 */
+	word-break: break-all;
+
+	/*字与字之间的间距*/
+	letter-spacing: 0.1rem;
+
+	/*开头缩进*/
+	/*text-indent : 5rem;*/
+}

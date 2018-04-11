@@ -44,7 +44,7 @@ var dat = {
 		for (i = 0; i < m.length; i ++) {
 			if (m[i].txtim) {
 				d = document.createElement("a");
-				d.href = "xqOne.html?od=" + o.order + "id=" + i;
+				d.href = "xqOne.html?od=" + o.order + "&id=" + i;
 				d.className = "tim";
 			} else {
 				d = document.createElement("span");

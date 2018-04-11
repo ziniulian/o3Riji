@@ -62,3 +62,4 @@ r.get("/srvHdXqDat/", function (req, res, next) {
 // 数据库操作：
 db.diary.remove({typ:2})
 db.diary.update({typ:3}, {"$set":{typ:2}}, false, true)
+db.diary.update({order:25},{"$set":{"meet.0.txtim":16989}})

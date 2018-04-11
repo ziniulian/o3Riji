@@ -76,7 +76,7 @@ var dat = {
 
 		d.className = "rj_title";
 		d.innerHTML = s;
-		d.href = "rj.html?t=" + o.tim;
+		d.href = "rj.html?tim=" + o.tim;
 		d.target = "_blank";
 
 		tbs.appendChild(d);
