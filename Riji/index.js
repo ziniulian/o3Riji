@@ -153,7 +153,7 @@ r.post("/srvNamsXq/", function (req, res, next) {
 
 r.post("/srvInfoXq/", function (req, res, next) {
 	cmdb.get( req, res, next,
-		{"order": (req.body.od - 0), "typ":2},
+		{"order": utMath.str2num(req.body.od), "typ":2},
 		{
 			"_id":0, "nam":1, "year":1, "zo":1, "tel":1, "op":1, "job":1,
 			"order":1, "metotal":1, "meet.tim":1, "meet.txtim":1
@@ -161,9 +161,26 @@ r.post("/srvInfoXq/", function (req, res, next) {
 	);
 });
 
+r.post("/srvInfoXq2/", function (req, res, next) {
+	cmdb.get( req, res, next,
+		{"order": utMath.str2num(req.body.od), "typ":2},
+		{
+			"_id":0, "nam":1, "year":1, "zo":1,
+			"tel":1, "op":1, "job":1, "order":1
+		}
+	);
+});
+
+r.post("/srvInfoXq3/", function (req, res, next) {
+	cmdb.get( req, res, next,
+		{"order": utMath.str2num(req.body.od), "typ":2},
+		{ "_id":0, "nam":1, "meet.tim":1, "meet.txtim":1 }
+	);
+});
+
 r.post("/srvOneMeetXq/", function (req, res, next) {
 	cmdb.get( req, res, next,
-		{"order": (req.body.od - 0), "typ":2},
+		{"order": utMath.str2num(req.body.od), "typ":2},
 		{"_id":0, "nam":1, "meet":1}, true
 	);
 });
@@ -171,14 +188,160 @@ r.post("/srvOneMeetXq/", function (req, res, next) {
 	var r = req.qpobj.comDbSrvReturn[0];
 	var o = {
 		nam: r.nam,
-		meet: r.meet[(req.body.id - 0)]
+		meet: r.meet[utMath.str2num(req.body.id)]
 	};
 	res.json(clsR.get(o));
 });
 
-// 添加新人
-// 修改基本信息
-// 补充、修改约会信息
+function crtXqObj (dat) {
+	var o = {};
+	var b = false;
+	if (dat.nam) {
+		o.nam = dat.nam;
+		b = true;
+	}
+	if (dat.year) {
+		o.year = utMath.str2num(dat.year);
+		b = true;
+	}
+	if (dat.zo) {
+		o.zo = dat.zo;
+		b = true;
+	}
+	if (dat.op) {
+		o.op = dat.op;
+		b = true;
+	}
+	if (dat.job) {
+		o.job = dat.job;
+		b = true;
+	}
+	if (dat.tel) {
+		o.tel = dat.tel.split("\n");
+		b = true;
+	}
+	if (b) {
+		return o;
+	} else {
+		return null;
+	}
+}
+
+// 修改相亲对象基本信息
+r.post("/srvSetBaseXq/", function (req, res, next) {
+	if (req.body.od) {
+		var cond = {"order": utMath.str2num(req.body.od), "typ":2};
+		var o = crtXqObj(req.body);
+		if (o) {
+			cmdb.set( req, res, next, cond, {"$set": o});
+		} else {
+			res.json(clsR.get(0, "缺少参数", false));
+		}
+	} else {
+		next();
+	}
+});
+r.post("/srvSetBaseXq/", function (req, res, next) {
+	cmdb.count( req, res, next, {"typ":2}, true);	// 获取总数
+});
+r.post("/srvSetBaseXq/", function (req, res, next) {
+	// 新增相亲对象
+	var od = req.qpobj.comDbSrvReturn + 1;
+	var o = crtXqObj(req.body);
+	if (o && o.nam) {
+		o.order = od;
+		o.typ = 2;
+		o.metotal = 0;
+		o.meet = [];
+		cmdb.add( req, res, next, false, o);
+	} else {
+		res.json(clsR.get(0, "缺少姓名", false));
+	}
+});
+
+// 添加约会信息
+r.post("/srvAddMeetXq/", function (req, res, next) {
+	if (req.body.od && req.body.tim) {
+		cmdb.get( req, res, next,
+			{
+				"order": utMath.str2num(req.body.od),
+				"typ": 2,
+				"meet.tim": utMath.str2num(req.body.tim)
+			}, {"_id":0, "order":1}, true
+		);
+	} else {
+		res.json(clsR.get(0, "缺少序号和时间", false));
+	}
+});
+r.post("/srvAddMeetXq/", function (req, res, next) {
+	if (req.qpobj.comDbSrvReturn.length === 0) {
+		var cond = {"order": utMath.str2num(req.body.od), "typ": 2};
+		var o = { "tim": utMath.str2num(req.body.tim) };
+		if (req.body.txtim) { o.txtim = utMath.str2num(req.body.txtim); }
+		if (req.body.txt) { o.txt = req.body.txt; }
+		cmdb.set( req, res, next, cond, {
+			"$push": {
+				"meet": {
+					"$each": [o],
+					"$sort": {"tim": 1}
+				}
+			},
+			"$inc": {
+				"metotal": 1
+			}
+		});
+	} else {
+		res.json(clsR.get(0, "时间重复", false));
+	}
+});
+
+// 删除约会信息
+r.post("/srvDelMeetXq/", function (req, res, next) {
+	if (req.body.od && req.body.tim) {
+		var t = utMath.str2num(req.body.tim);
+		var cond = {"order": utMath.str2num(req.body.od), "typ": 2, "meet.tim": t};
+		cmdb.set( req, res, next, cond, {
+			"$pull": {
+				"meet": {
+					"tim": t
+				}
+			},
+			"$inc": {
+				"metotal": -1
+			}
+		});
+	} else {
+		res.json(clsR.get(0, "缺少序号和时间", false));
+	}
+});
+
+// 修改约会信息
+r.post("/srvSetMeetXq/", function (req, res, next) {
+	if (req.body.od && req.body.tim) {
+		var t = utMath.str2num(req.body.tim);
+		var cond = {"order": utMath.str2num(req.body.od), "typ": 2, "meet.tim": t};
+		var o = {};
+		var b = false;
+		if (req.body.txt) {
+			o["meet.$.txt"] = req.body.txt;
+			b = true;
+		}
+		if (req.body.txtim) {
+			o["meet.$.txtim"] = utMath.str2num(req.body.txtim);
+			if (!o["meet.$.txtim"]) {
+				o = {"meet.$" : {"tim": t}};
+			}
+			b = true;
+		}
+		if (b) {
+			cmdb.set( req, res, next, cond, { "$set": o });
+		} else {
+			res.json(clsR.get(0, "缺少参数", false));
+		}
+	} else {
+		res.json(clsR.get(0, "缺少序号和时间", false));
+	}
+});
 
 // 初始化模板
 // r.initTmp();

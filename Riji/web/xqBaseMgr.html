@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>相亲对象基础信息管理</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0" />
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="/myLib/LZR.js"></script>
+		<script type="text/javascript" src="/tools.js"></script>
+		<script type="text/javascript" src="js/xqBaseMgr.js"></script>
+		<link rel="stylesheet" href="/base.css">
+
+		<style type="text/css">
+			.tel {
+				height: 5rem;
+				margin: 0;
+				border-width: 0.1rem;
+			}
+			#logDoe {
+				margin-left: 1rem;
+				color: #F00;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="boso" class="boso">
+			<div class="logo">
+				<div id="logDoe"></div>
+				<a href="xqMgr.html" class="logohome" target="_blank"></a>
+			</div>
+			<table>
+				<tbody>
+					<tr>
+						<td class="k">姓名 ： </td>
+						<td class="v">
+							<input id="namDoe" type="text" class="vTxt"></input>
+						</td>
+					</tr>
+					<tr>
+						<td class="k">出生年份 ： </td>
+						<td class="v">
+							<input id="yearDoe" type="text" class="vTxt"></input>
+						</td>
+					</tr>
+					<tr>
+						<td class="k">生肖 ： </td>
+						<td class="v">
+							<select id="zoDoe">
+								<option>鼠</option>
+								<option selected=true>牛</option>
+								<option>虎</option>
+								<option>兔</option>
+								<option>龙</option>
+								<option>蛇</option>
+								<option>马</option>
+								<option>羊</option>
+								<option>猴</option>
+								<option>鸡</option>
+								<option>狗</option>
+								<option>猪</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td class="k">电话 ： </td>
+						<td class="v">
+							<textarea id="telDoe" class="txtBox tel" type="textarea"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td class="k">籍贯 ： </td>
+						<td class="v">
+							<input id="opDoe" type="text" class="vTxt"></input>
+						</td>
+					</tr>
+					<tr>
+						<td class="k">职业 ： </td>
+						<td class="v">
+							<input id="jobDoe" type="text" class="vTxt"></input>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<br /><br />
+			<div class="c">
+				<a href="javascript: dat.sav();">-- 提交 --</a>
+				<br /><br />
+				<a id="meetDoe">-- 修改约会信息 --</a>
+			</div>
+			<div id="mark" class="Lc_nosee"><br /><br />请稍候 ...<br /><br />
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		document.body.onload = init;
+	</script>
+</html>

@@ -16,6 +16,7 @@
     "job" : "",   // 职业
     "order" : 1,    // 序号
     "metotal":  3,  // 见面总次数
+    "tel": ["15101332014", "13369311750"]   // 电话
     "meet" : [      // 见面信息
         {
             "tim" : "2014-2-2"  // 见面日期
@@ -63,3 +64,5 @@ r.get("/srvHdXqDat/", function (req, res, next) {
 db.diary.remove({typ:2})
 db.diary.update({typ:3}, {"$set":{typ:2}}, false, true)
 db.diary.update({order:25},{"$set":{"meet.0.txtim":16989}})
+
+

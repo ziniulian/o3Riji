@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>相亲管理</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0" />
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="/myLib/LZR.js"></script>
+		<script type="text/javascript" src="/tools.js"></script>
+		<script type="text/javascript" src="js/xq.js"></script>
+		<link rel="stylesheet" href="/base.css">
+
+		<style type="text/css">
+			#tbs {
+				text-align: center;
+			}
+			.nam {
+				display: inline-block;
+				width: 38%;
+				font-size: 2.2rem;
+				line-height: 2;
+				color: #333;
+				text-align: left;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="boso" class="boso">
+			<div class="logo">
+				<a href="rjHome.html" class="logohome" target="_blank"></a>
+				<a href="xqBaseMgr.html">-- 新建 --</a>
+			</div>
+			<div id="tbs"></div>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		dat.crtDoe = function (o) {
+			var d = document.createElement("a");
+			d.className = "nam";
+			d.innerHTML = o.nam;
+			d.href = "xqBaseMgr.html?od=" + o.order;
+			return d;
+		};
+		dat.defaultOrder = 2;
+		document.body.onload = init;
+	</script>
+</html>

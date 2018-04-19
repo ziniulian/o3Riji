@@ -10,6 +10,7 @@ var ajx = new LZR.HTML.Base.Ajax ();
 var dat = {
 	od: null,
 	md: [],
+	defaultOrder: true,
 
 	hdDat: function (txt, sta) {
 		if (sta === 200) {
@@ -18,10 +19,7 @@ var dat = {
 				var o = d.dat;
 				dat.od = o;
 				for (var i = 0; i < o.length; i ++) {
-					o[i].doe = document.createElement("a");
-					o[i].doe.className = "nam";
-					o[i].doe.innerHTML = o[i].nam + "<span class='tim'> ( " + o[i].metotal + " ) </span>";
-					o[i].doe.href = "xqInfo.html?id=" + o[i].order;
+					o[i].doe = dat.crtDoe(o[i]);
 					dat.md.push(i);
 					var t = i - 1;
 					for (var j = t; j >= 0; j --) {
@@ -34,15 +32,27 @@ var dat = {
 						}
 					}
 				}
-				dat.show(true);
+				dat.show(dat.defaultOrder);
 			}
 		}
+	},
+
+	crtDoe: function (o) {
+		var d = document.createElement("a");
+		d.className = "nam";
+		d.innerHTML = o.nam + "<span class='tim'> ( " + o.metotal + " ) </span>";
+		d.href = "xqInfo.html?id=" + o.order;
+		return d;
 	},
 
 	show: function (t) {
 		var i;
 		tbs.innerHTML = "";
-		if (t) {
+		if (t === 2) {
+			for (i = dat.od.length - 1; i >= 0; i --) {
+				tbs.appendChild(dat.od[i].doe);
+			}
+		} else if (t) {
 			for (i = 0; i < dat.md.length; i ++) {
 				tbs.appendChild(dat.od[dat.md[i]].doe);
 			}
