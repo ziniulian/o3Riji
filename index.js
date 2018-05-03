@@ -34,6 +34,11 @@ srv.ro.get("/tools.js", function (req, res) {
 	res.redirect(dmsrv.ds.main + "js/tools.js");
 });
 
+// 返回服务名
+srv.ro.get("/myNam/", function (req, res) {
+	res.send("Simi");
+});
+
 // 日记
 srv.use("/Riji/", require("./Riji"));
 
