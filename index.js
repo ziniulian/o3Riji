@@ -36,7 +36,7 @@ srv.ro.get("/tools.js", function (req, res) {
 
 // 返回服务名
 srv.ro.get("/myNam/", function (req, res) {
-	res.send("Simi");
+	res.send("Riji");
 });
 
 // 日记
