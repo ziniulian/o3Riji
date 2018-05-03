@@ -17,23 +17,20 @@ var dat = {
 	// 数据库访问工具
 	db: new LZR.HTML.Srv.ComDbQry ({
 		custExe: true,
-		keyNam: "order",
 		url: {
 			add: "srvAddMeetXq/",
 			del: "srvDelMeetXq/",
 			set: "srvSetMeetXq/",
 			meg: "srvOneMeetXq/",
-			qry: "srvInfoXq3/"
+			get: "srvInfoXq3/"
 		}
 	}),
 
 	// 数据库初始化
 	initDb: function () {
 		dat.db.mark.doe = document.getElementById("mark");
-		dat.db.evt.qryb.add(function (o) {
-			o.od = dat.od;
-		});
-		dat.db.evt.qryr.add(function (o) {
+		dat.db.memo.doe = document.getElementById("logDoe");
+		dat.db.evt.getr.add(function (o) {
 			namDoe.innerHTML = o[0].nam;
 			namDoe.href = "xqBaseMgr.html?od=" + dat.od;
 			var d = o[0].meet;
@@ -59,7 +56,7 @@ var dat = {
 						} else {
 							meetDoe.insertBefore(dat.tmp.doe, dat.mts[id].doe);
 						}
-						dat.memo("添加成功！");
+						dat.db.showMsg("添加成功！");
 						break;
 					case "del":
 						txtDoe.value = "";
@@ -68,7 +65,7 @@ var dat = {
 						meetDoe.removeChild(dat.tmp.doe);
 						dat.mts.splice(dat.tmp.id, 1);
 						dat.tmp = dat.tmp.tim;
-						dat.memo("删除成功！");
+						dat.db.showMsg("删除成功！");
 						break;
 					case "set":
 						if (txtDoe.value) {
@@ -87,33 +84,25 @@ var dat = {
 							LZR.del(dat.tmp, "strTxtim");
 							txtimDoe.value = "";
 						}
-						dat.memo("修改成功！");
+						dat.db.showMsg("修改成功！");
 						break;
 				}
 			} else {
 				switch (dat.db.busy) {
 					case "add":
 						dat.tmp = dat.tmp.tim;
-						dat.memo("添加失败！");
+						dat.db.showMsg("添加失败！");
 						break;
 					case "del":
-						dat.memo("删除失败！");
+						dat.db.showMsg("删除失败！");
 						break;
 					case "set":
-						dat.memo("修改失败！");
+						dat.db.showMsg("修改失败！");
 						break;
 				}
 			}
 			dat.db.showMark(false);
 		});
-	},
-
-	// 信息提示
-	memo: function (msg) {
-		logDoe.innerHTML = msg;
-		setTimeout(function () {
-			logDoe.innerHTML = "";
-		}, 2000);
 	},
 
 	// 获取序号
@@ -237,7 +226,7 @@ function init() {
 	dat.initDb();
 	if (r.od) {
 		dat.od = r.od;
-		dat.db.first();
+		dat.db.get(r);
 		lzr_tools.trace();
 	}
 }

@@ -12,43 +12,31 @@ var dat = {
 	// 数据库访问工具
 	db: new LZR.HTML.Srv.ComDbQry ({
 		custExe: true,
-		keyNam: "order",
 		url: {
 			meg: "srvSetBaseXq/",
-			qry: "srvInfoXq2/"
+			get: "srvInfoXq2/"
 		}
 	}),
 
 	// 数据库初始化
 	initDb: function () {
 		dat.db.mark.doe = document.getElementById("mark");
-		dat.db.evt.qryb.add(function (o) {
-			o.od = dat.od;
-			dat.od = false;
-		});
-		dat.db.evt.qryr.add(function (o) {
+		dat.db.memo.doe = document.getElementById("logDoe");
+		dat.db.evt.getr.add(function (o) {
 			dat.show(o[0]);
 		});
 		dat.db.evt.exer.add(function (o) {
 			if (o.ok) {
 				if (dat.od) {
-					dat.memo("修改成功！");
+					dat.db.showMsg("修改成功！");
 				} else {
 					location.href = "xqMgr.html";
 				}
 			} else {
-				dat.memo("提交失败！");
+				dat.db.showMsg("提交失败！");
 			}
 			dat.db.showMark(false);
 		});
-	},
-
-	// 信息提示
-	memo: function (msg) {
-		logDoe.innerHTML = msg;
-		setTimeout(function () {
-			logDoe.innerHTML = "";
-		}, 2000);
 	},
 
 	show: function (o) {
@@ -88,8 +76,7 @@ function init() {
 	var r = utUrl.getRequest();
 	dat.initDb();
 	if (r.od) {
-		dat.od = r.od;
-		dat.db.first();
+		dat.db.get(r);
 	}
 	lzr_tools.trace();
 }
