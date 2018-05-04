@@ -58,6 +58,8 @@ var dat = {
 };
 
 function init() {
+	lzr_tools.getDomains("io_xq");
+
 	var r = utUrl.getRequest();
 	if (r.id) {
 		ajx.evt.rsp.add(dat.hdDat);

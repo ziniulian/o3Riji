@@ -337,9 +337,9 @@ var dat = {
 };
 
 function init() {
-	lzr_tools.getDomains("io_home");
-	dat.initDb();
+	lzr_tools.getDomains("io_home,io_xq");
 
+	dat.initDb();
 	dat.db.custExe = true;
 	dat.db.showMark(true);
 	dat.db.exeajx.post("srvLimit/", null, null, true);

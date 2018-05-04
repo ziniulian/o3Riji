@@ -73,6 +73,8 @@ var dat = {
 };
 
 function init() {
+	lzr_tools.getDomains("io_xq_mgr");
+
 	var r = utUrl.getRequest();
 	dat.initDb();
 	if (r.od) {

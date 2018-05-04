@@ -65,6 +65,7 @@ var dat = {
 };
 
 function init() {
+	lzr_tools.getDomains("io_rj");
 	ajx.evt.rsp.add(dat.hdDat);
 	ajx.post("srvNamsXq/", null, null, true);
 	lzr_tools.trace();

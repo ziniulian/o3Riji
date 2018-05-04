@@ -62,7 +62,7 @@ var dat = {
 };
 
 function init() {
+	lzr_tools.getDomains("io_rj");
 	dat.initDb();
-
 	lzr_tools.trace();
 }
